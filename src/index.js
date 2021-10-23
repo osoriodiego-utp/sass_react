@@ -1,17 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Route, BrowserRouter as Router } from 'react-router-dom'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import Navbar from './shared/Navbar'
+import Home from './pages/Home'
+import About from './pages/About'
+import GamesList from './pages/GamesList'
+import GamePage from './pages/GamePage'
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+import 'semantic-ui-css/semantic.min.css'
+import './index.sass'
+
+function App () {
+  return (
+    <Router>
+      <Navbar />
+      <div className='main-container'>
+        <Route exact path='/' component={Home} />
+        <Route exact path='/about' component={About} />
+        <Route exact path='/games' component={GamesList} />
+        <Route exact path='/games/:id' component={GamePage} />
+      </div>
+    </Router>
+  )
+}
+ReactDOM.render(<App />, document.getElementById('root'))

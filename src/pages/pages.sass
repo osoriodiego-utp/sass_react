@@ -1,0 +1,35 @@
+$primary: #6435C9
+$secondary: #9146FF
+
+.game-container
+  margin: 20px
+
+.grid
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(300px, 0.5fr))
+  grid-gap: 40px
+  align-items: stretch
+
+  .card
+    text-align: center
+    border: 1px solid #ccc
+    box-shadow: 2px 2px 6px 2px rgba(0,0,0,0.3)
+    background-color: transparentize($primary, 1)
+
+  .card-img
+    max-width: 100%
+
+  .card-text
+    text-align: center
+    padding: 0 10px
+
+.card-button
+  width: 100%
+  padding: 10px
+  border: 0
+  color: #ffffff
+  background-color: $primary
+
+  &:hover
+    cursor: pointer
+    background-color: $secondary
